@@ -34,7 +34,11 @@ export const getHandlebars = () => {
                     return word.toLowerCase();
                 }
 
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                if (/^[A-Z]+$/.test(word)) {
+                    word = word.toLowerCase();
+                }
+
+                return word.charAt(0).toUpperCase() + word.slice(1);
             })
             .join("");
     });
